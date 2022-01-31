@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+     {% block content %}
+      {% for post in posts %}
+      <div class="container">
+        <h1>{{ post.author.get_full_name }}</h1>
+        <p>
+            {{ post.group.title }}
+        </p>
+        <article>
+          <ul>
+            <li>
+              Автор: {{ post.author.get_full_name }}
+            </li>
+            <li>
+              Дата публикации: {{ post.pub_date|date:"d E Y" }}
+            </li>
+          </ul>      
+          <p>
+            {{ post.text }}
+          </p>         
+        </article>
+        <hr>
+     {% endfor %}  
+    {% endblock %}
+        
